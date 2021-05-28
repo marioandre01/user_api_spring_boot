@@ -15,7 +15,6 @@
 <p align="center"> 
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-executando-a-aplicação">Executando a aplicação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#gear-contribuição">Contribuição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
@@ -63,7 +62,7 @@ Caso o maven não esteja instalado executar:
 ```bash
 $ sudo apt install maven
 ```
-Com o maven instalado a primeira maneira é usando o comando **spring-boot:run**
+A primeira maneira é usando o comando **spring-boot:run**
 
 ```bash
 $ mvn spring-boot:run
@@ -76,7 +75,7 @@ A segunda maneira é gerando o seu arquivo **.jar**
 ```bash
 $ mvn clean package
 ```
-Concluído o processo de criação, será gerado a pasta **target** na pasta raiz do projeto e dentro dela estará o arquivo **.jar** criado.
+Será iniciado o processo de build e será gerado a pasta **target** na pasta raiz do projeto. Dentro dela estará o arquivo **.jar** criado.
 
 Então entrar na pasta **target**
 ```bash
@@ -85,13 +84,10 @@ $ cd target
 E executar:
 ```bash
 $ java -jar nome_do_arquivo.jar
-
-# exemplo: 
-# $ java -jar spring-boot-subscriber-encrypt_decrypt-0.0.1-SNAPSHOT.jar
 ```
 A aplicação será iniciada.
 
-Agora acessar as rotas da API para usar os seus serviços
+Agora acessar as rotas da API para usar os seus serviços. Para acessar as rotas, usar os softwares insomnia ou Postman.
 
 ### Rotas GET
 - getMensagem 
@@ -176,7 +172,7 @@ Agora acessar as rotas da API para usar os seus serviços
       "dataCadastro": "2021-05-28T15:13:44.374+00:00"
     }
   ```
-  ### Rota DELETE
+### Rota DELETE
 - removeUserByCpf
   
   [DELETE] `http://localhost:8080/123`
