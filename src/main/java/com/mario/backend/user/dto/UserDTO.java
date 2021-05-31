@@ -15,6 +15,4 @@ public class UserDTO {
 	private Date dataCadastro;
 	
 	//gets e sets
-	
-	
 }

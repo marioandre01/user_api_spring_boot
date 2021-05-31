@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class UserController {
-	
+
 	@GetMapping("/")
 	public String getMensagem() {
 		return "Spring boot is working!";
@@ -50,9 +50,9 @@ public class UserController {
 		}
 		return false;
 	}
-	
+
 	public static List<UserDTO> usuarios = new ArrayList<UserDTO>();
-	
+
 	@PostConstruct //faz com que o método initiateList() seja executado logo depois que o contêiner inicializa a classe UserController
 	public void initiateList() {
 		UserDTO userDTO = new UserDTO();
@@ -62,7 +62,7 @@ public class UserController {
 		userDTO.setEmail("eduardo@email.com");
 		userDTO.setTelefone("1234-3454");
 		userDTO.setDataCadastro(new Date());
-		
+
 		UserDTO userDTO2 = new UserDTO();
 		userDTO2.setNome("Luiz");
 		userDTO2.setCpf("456");
@@ -70,7 +70,7 @@ public class UserController {
 		userDTO2.setEmail("luiz@email.com");
 		userDTO2.setTelefone("1234-3454");
 		userDTO2.setDataCadastro(new Date());
-		
+
 		UserDTO userDTO3 = new UserDTO();
 		userDTO3.setNome("Bruna");
 		userDTO3.setCpf("789");
@@ -78,7 +78,7 @@ public class UserController {
 		userDTO3.setEmail("bruna@email.com");
 		userDTO3.setTelefone("1234-3454");
 		userDTO3.setDataCadastro(new Date());
-		
+
 		usuarios.add(userDTO);
 		usuarios.add(userDTO2);
 		usuarios.add(userDTO3);
