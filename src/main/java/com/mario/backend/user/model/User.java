@@ -2,6 +2,7 @@ package com.mario.backend.user.model;
 
 import com.mario.backend.user.dto.UserDTO;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,8 @@ public class User {
     private String endereco;
     private String email;
     private String telefone;
+
+    @CreationTimestamp //gerar timestamp automaticamente ao criar um user
     private Date dataCadastro;
 
     // gets e sets omitidos

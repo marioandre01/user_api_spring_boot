@@ -108,7 +108,7 @@ $ java -jar nome_do_arquivo.jar
 ```
 A aplicação será iniciada.
 
-Agora acessar as rotas da API para usar os seus serviços. Para acessar as rotas, usar os softwares insomnia ou Postman.
+Agora acessar as rotas da API para usar os seus serviços. Para acessar as rotas, usar os softwares [insomnia](https://insomnia.rest/download) ou [Postman](https://www.postman.com/downloads/).
 
 ### Rotas GET
 - getMensagem 
