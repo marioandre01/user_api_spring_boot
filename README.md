@@ -55,6 +55,27 @@ $ cd user_api_spring_boot
 ```
 ### 💻 Executando a aplicação
 
+Com o docker instalado executar:
+```bash
+$ sudo docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+```
+
+Com o "psql" instalado usa-lo para acessar o postgres:
+```bash
+$ psql -h 127.0.0.1 -U postgres -W
+```
+A senha é **postgres**
+
+criar o database "dev" no banco
+```sql
+CREATE DATABASE dev;
+```
+
+Sair do postgres
+```sql
+exit;
+```
+
 Para executar a aplicação há duas formas usando o maven:
 
 Caso o maven não esteja instalado executar:
@@ -131,9 +152,9 @@ Agora acessar as rotas da API para usar os seus serviços. Para acessar as rotas
     ]  
   ```
   
-- getUsersByCpf
+- getUsersById
 
-  [GET] `http://localhost:8080/users/123`
+  [GET] `http://localhost:8080/user/1`
   #### Resposta: 
   ```bash   
     {
@@ -147,10 +168,67 @@ Agora acessar as rotas da API para usar os seus serviços. Para acessar as rotas
   ```
   Se colocar um Cpf que não esta cadastrado vai retorna **Null**
 
-### Rota POST
-- insertUser
+- getUsersByCpf
 
-  [POST] `http://localhost:8080/newUser`
+  [GET] `http://localhost:8080/users/123`
+  #### Resposta:
+  ```bash   
+    {
+      "nome": "Eduardo",
+      "cpf": "123",
+      "endereco": "Rua a",
+      "email": "eduardo@email.com",
+      "telefone": "1234-3454",
+      "dataCadastro": "2021-05-28T15:11:12.401+00:00"
+    } 
+  ```
+  Se colocar um Cpf que não esta cadastrado vai retorna **Null**
+
+- getQueryByName
+
+  [GET] `http://localhost:8080/user/search?nome=Mar%`
+  #### Resposta:
+  ```bash   
+    {
+    "nome": "Mario",
+    "cpf": "789",
+    "endereco": "Avenida 2",
+    "email": "mario@email.com",
+    "telefone": "1234-3454",
+    "dataCadastro": "2021-05-31T18:26:48.663+00:00"
+  },
+  {
+    "nome": "Marcelo",
+    "cpf": "1011",
+    "endereco": "Avenida 2",
+    "email": "marcelo@email.com",
+    "telefone": "1234-3454",
+    "dataCadastro": "2021-05-31T18:27:05.788+00:00"
+  },
+  {
+    "nome": "Marcela",
+    "cpf": "1213",
+    "endereco": "Avenida 2",
+    "email": "marcela@email.com",
+    "telefone": "1234-3454",
+    "dataCadastro": "2021-05-31T18:27:18.713+00:00"
+  }
+  ```
+  Como o parâmetro nome foi anotado como obrigatório, caso a rota seja chamada sem ele, apenas com **http://localhost:8080/user/search**, retornará o erro:
+  ```bash   
+    {
+      "timestamp": "2020-05-30T01:22:41.581+0000",
+      "status": 400,
+      "error": "Bad Request",
+      "message": "Required String parameter 'nome' is not present",
+      "path": "/user/search"
+    }
+  ```
+
+### Rota POST
+- newUser
+
+  [POST] `http://localhost:8080/user`
   #### Corpo da mensagem (json): 
   ```bash   
     {
@@ -161,26 +239,16 @@ Agora acessar as rotas da API para usar os seus serviços. Para acessar as rotas
       "telefone":"1234-3454"
     } 
   ```
-  #### Resposta: 
-  ```bash   
-    {
-      "nome": "Carlos",
-      "cpf": "987",
-      "endereco": "Avenida 2",
-      "email": "carlos@email.com",
-      "telefone": "1234-3454",
-      "dataCadastro": "2021-05-28T15:13:44.374+00:00"
-    }
-  ```
+
 ### Rota DELETE
-- removeUserByCpf
-  
-  [DELETE] `http://localhost:8080/123`
+- deleteUser
+
+  [DELETE] `http://localhost:8080/user/1`
   #### Resposta: 
   ```bash   
-    True 
+    # retorna nada (void)
   ```
-  Se informar um Cpf que não esta cadastrado vai retornar **False**
+  Se colocar um id que não esta cadastrado vai retorna **Null**
 
 
 ## :gear: Contribuição

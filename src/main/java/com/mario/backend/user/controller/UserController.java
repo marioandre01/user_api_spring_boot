@@ -18,6 +18,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@GetMapping("/")
+	public String getMensagem() {
+		return "Spring boot is working!";
+	}
+
 	@GetMapping("/users")
 	public List<UserDTO> getUsers() {
 		List<UserDTO> usuarios = userService.getAll();
@@ -34,6 +39,7 @@ public class UserController {
 		return userService.findByCpf(cpf);
 	}
 
+//	http://localhost:8080/user/search?nome=Mar%
 	@GetMapping("/user/search")
 	public List<UserDTO> queryByName(
 			@RequestParam(name="nome", required = true)
