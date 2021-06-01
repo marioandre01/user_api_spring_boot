@@ -3,6 +3,7 @@ package com.mario.backend.user.controller;
 import javax.annotation.PostConstruct;
 
 import com.mario.backend.user.dto.UserDTO;
+import com.mario.backend.user.exception.UserNotFoundException;
 import com.mario.backend.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -53,8 +54,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/user/{id}")
-//	UserDTO delete(@PathVariable Long id) throws UserNotFoundException {
-	UserDTO delete(@PathVariable Long id) {
+	UserDTO delete(@PathVariable Long id) throws UserNotFoundException {
 		return userService.delete(id);
 	}
 
